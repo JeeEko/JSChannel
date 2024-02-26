@@ -17,6 +17,8 @@ export class AppComponent {
       if (this.isValidMessage(message)) {
         debugger;
         console.log('Received message from window:', message.html);
+        (document.getElementById('threedsChallengeRedirectForm') as HTMLFormElement).submit();
+      
       }
     } catch (error) {
       console.error('Error handling window message:', error);
