@@ -25,6 +25,7 @@ export class AppComponent implements OnInit, AfterViewInit {
       ).submit(); 
     }
     else {
+      this.test=false;
       console.log('div not loaded yet!')
     }
 
