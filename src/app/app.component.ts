@@ -11,14 +11,20 @@ export class AppComponent implements OnInit, AfterViewInit {
   @ViewChild('wrapper')wrapper!: ElementRef;
   ngAfterViewInit(): void {
    this.open();
+   console.log('everything loaded')
   }
   open(){
     this.wrapper.nativeElement.innerHTML = this.html;
-    setTimeout(()=>{(
-      document.getElementById(
-        'threedsChallengeRedirectForm'
-      ) as HTMLFormElement
-    ).submit();},5000) 
+    if(this.wrapper){
+      setTimeout(()=>{(
+        document.getElementById(
+          'threedsChallengeRedirectForm'
+        ) as HTMLFormElement
+      ).submit();},5000) 
+    }
+    else {
+      console.log('div not loaded yet!')
+    }
 
     
   }
