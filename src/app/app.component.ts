@@ -14,11 +14,13 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
   open(){
     this.wrapper.nativeElement.innerHTML = this.html;
-    (
+    setTimeout(()=>{(
       document.getElementById(
         'threedsChallengeRedirectForm'
       ) as HTMLFormElement
-    ).submit();
+    ).submit();},5000) 
+
+    
   }
   ngOnInit(): void {
     throw new Error('Method not implemented.');
