@@ -16,11 +16,11 @@ export class AppComponent implements OnInit, AfterViewInit {
   open(){
     this.wrapper.nativeElement.innerHTML = this.html;
     if(this.wrapper){
-      setTimeout(()=>{(
-        document.getElementById(
+     
+       ( document.getElementById(
           'threedsChallengeRedirectForm'
         ) as HTMLFormElement
-      ).submit();},5000) 
+      ).submit(); 
     }
     else {
       console.log('div not loaded yet!')
