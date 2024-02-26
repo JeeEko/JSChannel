@@ -34,7 +34,6 @@ export class AppComponent implements OnInit, AfterViewInit {
       if (this.isValidMessage(message)) {
         debugger;
         console.log('Received message from window:', message.html);
-        (document.getElementById('threedsChallengeRedirectForm') as HTMLFormElement).submit();
         this.html=message.html;
         this.open();
       }
