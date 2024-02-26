@@ -12,6 +12,7 @@ export class AppComponent {
     debugger;
     try {
       console.dir(event);
+      JSON.parse(event.data);
       const message: MobileSdkMessage = event.data as MobileSdkMessage;
       if (this.isValidMessage(message)) {
         debugger;
