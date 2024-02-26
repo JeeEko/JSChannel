@@ -8,12 +8,14 @@ import { MobileSdkMessage } from './mobile-sdk-message';
 })
 export class AppComponent implements OnInit, AfterViewInit {
   html!: string;
+  test:boolean=false;
   @ViewChild('wrapper')wrapper!: ElementRef;
   ngAfterViewInit(): void {
    this.open();
    console.log('everything loaded')
   }
   open(){
+    this.test=true;
     this.wrapper.nativeElement.innerHTML = this.html;
     if(this.wrapper){
      
