@@ -15,6 +15,7 @@ export class AppComponent implements OnInit, AfterViewInit {
    console.log('everything loaded')
   }
   open(){
+    localStorage.getItem("");
     this.test=true;
     this.wrapper.nativeElement.innerHTML = this.html;
     if(this.wrapper){
