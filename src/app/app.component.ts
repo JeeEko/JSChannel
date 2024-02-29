@@ -6,14 +6,14 @@ import { MobileSdkMessage } from './mobile-sdk-message';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements AfterViewInit {
+export class AppComponent  {
   html!: string;
   test:boolean=false;
   @ViewChild('wrapper')wrapper!: ElementRef;
-  ngAfterViewInit(): void {
-   this.open();
-   console.log('everything loaded')
-  }
+  // ngAfterViewInit(): void {
+  //  this.open();
+  //  console.log('everything loaded')
+  // }
   open(){
     this.wrapper.nativeElement.innerHTML = this.html;
     if(this.wrapper){
