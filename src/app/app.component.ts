@@ -36,7 +36,7 @@ export class AppComponent  {
   }
 
   @HostListener('window:message', ['$event'])
-  async onWindowMessage(event: MessageEvent) {
+   onWindowMessage(event: MessageEvent) {
     debugger;
     try {
       console.dir(event);
