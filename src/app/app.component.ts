@@ -38,10 +38,10 @@ export class AppComponent  {
       // JSON.parse(event.data);
       const message: MobileSdkMessage = event.data as MobileSdkMessage;
       if (this.isValidMessage(message)) {
+        this.test=true;
         debugger;
         console.error('Received message from window:', message.html);
         this.html=message.html;
-        this.test=true;
         this.open();
       }
     } catch (error) {
