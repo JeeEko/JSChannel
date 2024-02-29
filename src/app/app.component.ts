@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { MobileSdkMessage } from './mobile-sdk-message';
 
 @Component({
@@ -14,6 +14,12 @@ export class AppComponent  {
   //  this.open();
   //  console.log('everything loaded')
   // }
+  /**
+   *
+   */
+  constructor(    private cdr: ChangeDetectorRef
+    ) {
+  }
   open(){
     this.wrapper.nativeElement.innerHTML = this.html;
     if(this.wrapper){
@@ -39,7 +45,7 @@ export class AppComponent  {
       const message: MobileSdkMessage = event.data as MobileSdkMessage;
       if (this.isValidMessage(message)) {
         this.test=true;
-        await (setTimeout(async () => { }, 2000))
+        this.cdr.detectChanges();
         debugger;
         console.error('Received message from window:', message.html);
         this.html=message.html;
