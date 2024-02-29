@@ -6,7 +6,7 @@ import { MobileSdkMessage } from './mobile-sdk-message';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit, AfterViewInit {
+export class AppComponent implements AfterViewInit {
   html!: string;
   test:boolean=false;
   @ViewChild('wrapper')wrapper!: ElementRef;
@@ -15,11 +15,8 @@ export class AppComponent implements OnInit, AfterViewInit {
    console.log('everything loaded')
   }
   open(){
-    localStorage.getItem("");
-    this.test=true;
     this.wrapper.nativeElement.innerHTML = this.html;
     if(this.wrapper){
-     
        ( document.getElementById(
           'threedsChallengeRedirectForm'
         ) as HTMLFormElement
@@ -29,11 +26,6 @@ export class AppComponent implements OnInit, AfterViewInit {
       this.test=false;
       console.log('div not loaded yet!')
     }
-
-    
-  }
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
   }
 
   @HostListener('window:message', ['$event'])
@@ -47,6 +39,7 @@ export class AppComponent implements OnInit, AfterViewInit {
         debugger;
         console.log('Received message from window:', message.html);
         this.html=message.html;
+        this.test=true;
         this.open();
       }
     } catch (error) {
@@ -54,6 +47,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     }
   }
   isValidMessage(message: any) {
+    console.log(message?.html);
     return (
       typeof message === 'object' &&
       message !== null &&
