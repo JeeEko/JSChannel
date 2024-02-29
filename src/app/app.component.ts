@@ -9,7 +9,7 @@ import { MobileSdkMessage } from './mobile-sdk-message';
 export class AppComponent  {
   html!: string;
   test:boolean=false;
-  @ViewChild('wrapper')wrapper!: ElementRef;
+  @ViewChild('wrapper',{static:true})wrapper!: ElementRef;
   // ngAfterViewInit(): void {
   //  this.open();
   //  console.log('everything loaded')
@@ -17,7 +17,7 @@ export class AppComponent  {
   /**
    *
    */
-  constructor(    private cdr: ChangeDetectorRef
+  constructor(    
     ) {
   }
   open(){
@@ -44,11 +44,10 @@ export class AppComponent  {
       // JSON.parse(event.data);
       const message: MobileSdkMessage = event.data as MobileSdkMessage;
       if (this.isValidMessage(message)) {
-        this.test=true;
-        this.cdr.detectChanges();
         debugger;
         console.error('Received message from window:', message.html);
         this.html=message.html;
+        this.test=true;
         this.open();
       }
     } catch (error) {
