@@ -9,7 +9,7 @@ import { MobileSdkMessage } from './mobile-sdk-message';
 export class AppComponent  {
   html!: string;
   test:boolean=false;
-  @ViewChild('wrapper',{static:true})wrapper!: ElementRef;
+  @ViewChild('wrapper',{static:false})wrapper!: ElementRef;
   // ngAfterViewInit(): void {
   //  this.open();
   //  console.log('everything loaded')
