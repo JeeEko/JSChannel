@@ -29,7 +29,7 @@ export class AppComponent  {
   }
 
   @HostListener('window:message', ['$event'])
-  onWindowMessage(event: MessageEvent) {
+  async onWindowMessage(event: MessageEvent) {
     debugger;
     try {
       console.dir(event);
@@ -39,6 +39,7 @@ export class AppComponent  {
       const message: MobileSdkMessage = event.data as MobileSdkMessage;
       if (this.isValidMessage(message)) {
         this.test=true;
+        await (setTimeout(async () => { }, 2000))
         debugger;
         console.error('Received message from window:', message.html);
         this.html=message.html;
