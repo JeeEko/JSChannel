@@ -33,11 +33,13 @@ export class AppComponent  {
     debugger;
     try {
       console.dir(event);
+      console.error("source: "+event.source);
+      console.error("origin: "+event.origin)
       // JSON.parse(event.data);
       const message: MobileSdkMessage = event.data as MobileSdkMessage;
       if (this.isValidMessage(message)) {
         debugger;
-        console.log('Received message from window:', message.html);
+        console.error('Received message from window:', message.html);
         this.html=message.html;
         this.test=true;
         this.open();
@@ -47,7 +49,7 @@ export class AppComponent  {
     }
   }
   isValidMessage(message: any) {
-    console.log(message?.html);
+    console.error(message?.html);
     return (
       typeof message === 'object' &&
       message !== null &&
